@@ -1,6 +1,7 @@
 # Wow Can't believe how cool these solutions are....!
 
 #2D Array homework
+https://www.hackerrank.com/challenges/2d-array/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
 -Given a  2D Array, (6x6):
 -We define an hourglass in  to be a subset of values with indices falling in this pattern in 's graphical representation:
 a b c
