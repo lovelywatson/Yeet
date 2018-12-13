@@ -1,0 +1,50 @@
+
+
+// Complete the sherlockAndAnagrams function below.
+function sherlockAndAnagrams(s) {
+let word = s.split('');
+let pairs = 0;
+let len = word.length;
+
+  console.log(word);
+    function check(init, num,arrin){
+    let forward = [];
+    let reverse = [];
+    let numbo = init+num; 
+      for (let i =init;i<numbo;i++){
+        forward.push(arrin[i]);
+      }
+      for (let i=num; i>init-1;i--){
+        reverse.push(arrin[i]);
+      }
+      console.log(forward + ' and '+ reverse);
+    }
+  check(1,2,word);
+  console.log("heck");  
+  console.log(arr);
+    let rev = reverseString(forward);
+    console.log(rev);
+ 
+
+  for(let k = 0; k < len; k++){
+    
+  }
+  for(let j = 0; j < len; j++){
+    let i = j+1;
+    console.log("I am I! "+i);
+      while ( i < len ){
+          console.log("Compare: " + word[j]+" "+word[i])
+          if (word[j]==word[i]){
+              pairs++;
+              }
+          i++;
+      }
+    
+  }
+  
+  
+  console.log(pairs);
+} 
+
+let s = "abba";
+sherlockAndAnagrams(s);
