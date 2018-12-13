@@ -7,7 +7,7 @@ function repeatedString(s, n) {
     
     //Count how many of that letter are in a word
     for (let i =0;i<len;i++){
-        if (arr[0] == arr[i]){
+        if ('a' == arr[i]){
         inword++;
         }
     }
@@ -19,8 +19,8 @@ function repeatedString(s, n) {
         let remain = n%len;
         inword = Math.floor(n/len)*inword;
         print(inword + " "+remain+"");
-        for(let i=remain; i < n; i++){
-                 if (arr[0] == arr[i]){
+        for(let i=0; i < remain; i++){
+                 if ('a' == arr[i]){
                 inword++;
                }
             }
@@ -29,6 +29,6 @@ function repeatedString(s, n) {
     print(inword);
 }
     
-let s ="aba";
-let n =10;
+let s ="gfcaaaecbg";
+let n =547602;
 repeatedString(s, n);
