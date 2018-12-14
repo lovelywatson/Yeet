@@ -5,25 +5,46 @@ function sherlockAndAnagrams(s) {
 let word = s.split('');
 let pairs = 0;
 let len = word.length;
-
-  console.log(word);
-    function check(init, num,arrin){
+console.log(word);
+    
+  function forwardString(num,arrin){
     let forward = [];
-    let reverse = [];
+    let init=0;
     let numbo = init+num; 
-      for (let i =init;i<numbo;i++){
+    for (let i=init; i<numbo; i++){
         forward.push(arrin[i]);
       }
-      for (let i=num; i>init-1;i--){
+    let stringfor = forward.join('');
+    return stringfor;
+  }
+  
+  function reverseString(num,arrin){
+    let reverse = [];
+    let init=0;
+    let len = arrin.length-1;
+    let numbo = init+num; 
+    //define forward and backward arrays
+      
+      for (let i=(numbo-1); i>=init; i--){
         reverse.push(arrin[i]);
       }
-      console.log(forward + ' and '+ reverse);
-    }
-  check(1,2,word);
+    //convert them to strings
+      let stringrev = reverse.join('');
+      return stringrev;
+  } 
+    
+      console.log(forward + ' and '+ reverse+' '+stringrev+' '+stringfor);
+    //testing to match
+  while (num < len){
+      console.log("work");
+        if(stringrev==stringfor){
+          console.log("we match");
+        } 
+        num++;
+         }     
+ }
+  check(2,word);
   console.log("heck");  
-  console.log(arr);
-    let rev = reverseString(forward);
-    console.log(rev);
  
 
   for(let k = 0; k < len; k++){
