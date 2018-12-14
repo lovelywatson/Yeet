@@ -1,5 +1,3 @@
-
-
 // Complete the sherlockAndAnagrams function below.
 function sherlockAndAnagrams(s) {
 let word = s.split('');
@@ -7,9 +5,8 @@ let pairs = 0;
 let len = word.length;
 console.log(word);
     
-  function forwardString(num,arrin){
+  function forwardString(init,num,arrin){
     let forward = [];
-    let init=0;
     let numbo = init+num; 
     for (let i=init; i<numbo; i++){
         forward.push(arrin[i]);
@@ -18,53 +15,36 @@ console.log(word);
     return stringfor;
   }
   
-  function reverseString(num,arrin){
+  function reverseString(init,num,arrin){
     let reverse = [];
-    let init=0;
     let len = arrin.length-1;
     let numbo = init+num; 
-    //define forward and backward arrays
       
       for (let i=(numbo-1); i>=init; i--){
         reverse.push(arrin[i]);
       }
-    //convert them to strings
       let stringrev = reverse.join('');
       return stringrev;
   } 
-    
-      console.log(forward + ' and '+ reverse+' '+stringrev+' '+stringfor);
-    //testing to match
-  while (num < len){
-      console.log("work");
-        if(stringrev==stringfor){
-          console.log("we match");
-        } 
-        num++;
-         }     
- }
-  check(2,word);
-  console.log("heck");  
+  
+  console.log("This is what we got: " + reverseString(2,1,word) + " and " + forwardString(3,1,word));
  
-
-  for(let k = 0; k < len; k++){
-    
+for (let i=1; i<len; i++){
+  for(let j = 0; j < len-1; j++){
+    let revCheck = reverseString(j,i,word);
+    for(let k =j+1; k <len; k++){
+      let forCheck = forwardString(k,i,word);
+      //console.log("I Value:"+i+" J Value:"+j+" K Value:"+k);
+      console.log("Comparing "+revCheck+" to "+ forCheck);
+        if(forCheck==revCheck){
+          console.log("we match");
+          pairs++;
+        }  
+    }   
   }
-  for(let j = 0; j < len; j++){
-    let i = j+1;
-    console.log("I am I! "+i);
-      while ( i < len ){
-          console.log("Compare: " + word[j]+" "+word[i])
-          if (word[j]==word[i]){
-              pairs++;
-              }
-          i++;
-      }
-    
-  }
+}
   
-  
-  console.log(pairs);
+  console.log("This many pairs " +pairs);
 } 
 
 let s = "abba";
