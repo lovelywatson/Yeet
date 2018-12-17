@@ -1,0 +1,69 @@
+using System;
+					
+public class Program
+{
+	static int makeAnagram(string a, string b) {
+        char[] arrA = a.ToCharArray();
+        char[] arrB = b.ToCharArray();
+		
+        char[] longer, shorter;
+		int adderGuy = 0;
+        int delete = 0;
+        Array.Sort(arrA);
+        Array.Sort(arrB);
+
+        if (arrA.Length >= arrB.Length){
+            longer = arrA;
+            shorter = arrB;
+        } else {
+            longer = arrB;
+            shorter = arrA;
+        }
+        int extra = longer.Length - shorter.Length;
+		Console.WriteLine("I'm the extra:"+extra+" Shorter Length:"+shorter.Length+" Longer Length"+longer.Length);
+
+        for(int i=0; i < shorter.Length; i++){
+            int x = i + adderGuy;
+			if (x+1 > longer.Length){
+			Console.WriteLine("Breaking because x value is "+x+" and i value is "+i+"\n");
+			Console.WriteLine("Extra:"+extra+" Delete:"+delete+" Longer Length minus x:"+(longer.Length-x)+" Shorter Length minus i:"+(shorter.Length-i)+"\n");
+			Console.Write(shorter);
+			Console.Write("\n");
+			Console.Write(longer);
+			Console.Write("\n");
+			Console.WriteLine("Return:"+(delete+(longer.Length-(x))+(shorter.Length-(i))));
+			break;
+			}
+			
+			Console.WriteLine("\nComparing "+shorter[i]+" and "+longer[x]);
+			
+			while ((shorter[i] != longer[x]) && (shorter[i] > longer[x])){
+				
+				delete++;
+				adderGuy++;
+				Console.WriteLine("While--Comparing "+shorter[i]+" and "+longer[x]);
+				Console.WriteLine("Delete:"+delete+"\n");
+            	x++;
+			}
+             if (shorter[i] != longer[x]){
+				 
+				 delete++;
+				 delete++;
+				 Console.WriteLine("Not Equal:"+shorter[i]+" && "+longer[x]+"\nDelete:"+delete);
+             }   
+            }
+        
+        
+		return 0;
+    }
+    
+	
+	public static void Main()
+	{
+		//string a = "showman";
+		//string b = "woman";
+		string a = "fcrxzwscanmligyxyvym";
+		string b = "jxwtrhvujlmrpdoqbisbwhmgpmeoke";
+		makeAnagram(a,b);
+		}
+}
